@@ -92,3 +92,17 @@ resource "aws_route_table_association" "pubsub3" {
   subnet_id      = aws_subnet.pubsub3.id
   route_table_id = aws_route_table.public-rt.id
 }
+resource "aws_eip" "elasticip" {
+}
+
+resource "aws_nat_gateway" "natgw" {
+  allocation_id = aws_eip.elasticip.id
+  connectivity_type = "public"
+  subnet_id         = aws_subnet.pubsub1.id
+  depends_on = [aws_internet_gateway.igw]
+    tags = {
+        Name = "${var.env}-NGW"
+        Environment = var.env    
+  }
+}
+
