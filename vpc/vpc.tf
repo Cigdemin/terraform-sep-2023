@@ -67,7 +67,7 @@ resource "aws_internet_gateway" "igw" {
     Environment = var.env
   }
 }
-resource "aws_route_table" "public-route-table" {
+resource "aws_route_table" "public-rt" {
   vpc_id = aws_vpc.main.id
 
   route {
@@ -79,4 +79,16 @@ resource "aws_route_table" "public-route-table" {
     Name = "${var.env}-public-rt" ,
     Environment = var.env
   }
+}
+resource "aws_route_table_association" "pubsub1" {
+  subnet_id      = aws_subnet.pubsub1.id
+  route_table_id = aws_route_table.public-rt.id
+}
+resource "aws_route_table_association" "pubsub2" {
+  subnet_id      = aws_subnet.pubsub2.id
+  route_table_id = aws_route_table.public-rt.id
+}
+resource "aws_route_table_association" "pubsub3" {
+  subnet_id      = aws_subnet.pubsub3.id
+  route_table_id = aws_route_table.public-rt.id
 }
