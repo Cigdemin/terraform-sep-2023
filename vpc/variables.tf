@@ -55,14 +55,15 @@ variable "igw_name" {
     description = "IGW name"
     default = "IGW"
 }
-# variable "" {
-#     type = 
-#     description = "value"
-#     default = 
-# }
-# variable "" {
-#     type = 
-#     description = "value"
-#     default = 
-# }
+variable "ami" {
+    type = string
+    description = "This AMi ID for instance"
+    default = "ami-0440d3b780d96b29d"
+}
+
+variable "instance_type" {
+    type = string
+    description = "This is Instance size"
+    default = "t2.micro"
+}
 
