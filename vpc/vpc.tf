@@ -32,3 +32,30 @@ resource "aws_subnet" "pubsub3" {
     Environment = var.env
   }
 }
+resource "aws_subnet" "prisub1" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = var.prisub1_cidr
+
+  tags = {
+    Name = "${var.env}-${var.prisub_name}-1" ,
+    Environment = var.env
+  }
+}
+resource "aws_subnet" "prisub2" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = var.prisub2_cidr
+
+  tags = {
+    Name = "${var.env}-${var.prisub_name}-2" ,
+    Environment = var.env
+  }
+}
+resource "aws_subnet" "prisub3" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = var.prisub3_cidr
+
+  tags = {
+    Name = "${var.env}-${var.prisub_name}-3" ,
+    Environment = var.env
+  }
+}
