@@ -50,12 +50,11 @@ variable "prisub3_cidr" {
     default = "10.0.30.0/24"
 }
 
-
-# variable "" {
-#     type = 
-#     description = "value"
-#     default = 
-# }
+variable "igw_name" {
+    type = string
+    description = "IGW name"
+    default = "IGW"
+}
 # variable "" {
 #     type = 
 #     description = "value"
