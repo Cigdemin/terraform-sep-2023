@@ -9,6 +9,11 @@ variable "vpc_cidr" {
     description = "This variable is CIDR block for VPC"
     default = "10.0.0.0/16"
 }
+variable "pubsub_name" {
+    type = string
+    description = "This is CIDR range for public subnet 1"
+    default = "public-subnet"
+}
 variable "pubsub1_cidr" {
     type = string
     description = "This is CIDR range for public subnet 1"
@@ -23,6 +28,11 @@ variable "pubsub3_cidr" {
     type = string
     description = "This is CIDR range for public subnet 3"
     default = "10.0.3.0/24"
+}
+variable "prisub_name" {
+    type = string
+    description = "This is CIDR range for public subnet 1"
+    default = "private-subnet"
 }
 variable "prisub1_cidr" {
     type = string
