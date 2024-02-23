@@ -105,4 +105,28 @@ resource "aws_nat_gateway" "natgw" {
         Environment = var.env    
   }
 }
+resource "aws_route_table" "private-rt" {
+  vpc_id = aws_vpc.main.id
 
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_nat_gateway.natgw.id
+  }
+
+  tags = {
+    Name = "${var.env}-private-rt" ,
+    Environment = var.env
+  }
+}
+resource "aws_route_table_association" "prisub1" {
+  subnet_id      = aws_subnet.prisub1.id
+  route_table_id = aws_route_table.private-rt.id
+}
+resource "aws_route_table_association" "prisub2" {
+  subnet_id      = aws_subnet.prisub2.id
+  route_table_id = aws_route_table.private-rt.id
+}
+resource "aws_route_table_association" "prisub3" {
+  subnet_id      = aws_subnet.prisub3.id
+  route_table_id = aws_route_table.private-rt.id
+}
