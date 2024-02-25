@@ -1,11 +1,11 @@
 create following
-1.VPC
+1.VPC 
 2. 3 public, 3 private Subnets
-IGW
-NatGateway
-Public and Private Route Tables
-Route table assosiation
-Create ec2 instance with public Subnet
+3. IGW
+4. NatGateway
+5. Public and Private Route Tables
+6.Route table assosiation
+7.Create ec2 instance with public Subnet
     - Use user data to install apache 
     - Cretate index.html saying "task is done"
 Share the public ip of your resources

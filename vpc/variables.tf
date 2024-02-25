@@ -66,4 +66,3 @@ variable "instance_type" {
     description = "This is Instance size"
     default = "t2.micro"
 }
-
