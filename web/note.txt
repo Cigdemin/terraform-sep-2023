@@ -1,0 +1,18 @@
+Create followings:
+1.Application load balancer
+    - Target group
+    - Listener rules = 80
+    - Security Group = 80 
+    
+2. Auto Scaling Group
+    - Launch Template = Amazon Linux 2, UserData = "app is running"
+    - Security Group = 80 ,should be listening only from ALB
+    - Min = 1, Desired = 1, Max = 3
+
+3. Auto Scalin Group Attachment
+
+4.Create Route 53 Record
+    - A record pointing to your Load balancer
+    - 2 records: www.yourdomain.com , yourdomain.com
+
+Note: everything on default VPC
