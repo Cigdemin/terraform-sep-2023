@@ -5,8 +5,9 @@ resource "aws_instance" "main" {
   vpc_security_group_ids = [ aws_security_group.main.id ]
   user_data = data.template_file.userdata.rendered
   tags = {
-    Name = "${var.env}-Instance" ,
+    Name = "${var.app}-Instance" ,
     Environment = var.env
+    Managed_by = var.managed_by
   }
   lifecycle {
     create_before_destroy = true
